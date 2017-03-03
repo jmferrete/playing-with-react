@@ -4,21 +4,31 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bff": "node ./build/server/index.js",
+    "sfs": "node_modules/list/dist/bin/list ./build/statics --port 8081 --cache 0"
   },
   "keywords": [],
   "author": "José Manuel Ferrete Benítez",
   "license": "ISC",
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-intl": "^2.2.3",
+    "react-redux": "^5.0.3",
+    "react-router-dom": "^4.0.0-beta.7",
+    "redux": "^3.6.0"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.23.0",
+    "babel-preset-es2016": "^6.22.0",
+    "babel-preset-es2017": "^6.22.0",
     "babel-preset-latest-minimal": "^1.1.2",
     "babel-preset-react": "^6.23.0",
     "json-loader": "^0.5.4",
+    "list": "^0.9.5",
     "webpack": "^2.2.1"
   }
 }
