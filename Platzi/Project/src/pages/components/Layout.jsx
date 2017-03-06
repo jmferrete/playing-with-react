@@ -14,7 +14,7 @@ function Layout(props) {
                 __html: props.content,
             }}
             />
-            <script src='http://localhost:8080/app.js' />
+            <script src='http://localhost:8081/app.js' />
         </body>
     </html>
     )

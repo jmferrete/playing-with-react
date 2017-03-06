@@ -18,11 +18,13 @@ class Home extends Component {
     }
 
     async componentDidMount() {
-        const post = await api.posts.getList(this.state.page);
+        const posts = await api.post.getList(this.state.page);
+
+        console.log(this);
 
         this.setState({
             posts,
-            page: this.stage.page + 1,
+            page: this.state.page + 1,
             loading: false,
         })
     }
