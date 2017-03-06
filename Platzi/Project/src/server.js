@@ -15,8 +15,6 @@ function requestHandler(request, response) {
                 </StaticRouter>
     );
 
-    const result = context.getResult();
-
     response.setHeader('Content-Type', 'text/html');
 
     if (context.url) {
