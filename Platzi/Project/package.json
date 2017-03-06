@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "bff": "node ./build/server/index.js",
-    "sfs": "node_modules/list/dist/bin/list ./build/statics --port 8081 --cache 0"
+    "sfs": "node_modules/serve/bin/serve.js ./build/statics --port 8081 --cache 0"
   },
   "keywords": [],
   "author": "José Manuel Ferrete Benítez",
@@ -28,7 +28,7 @@
     "babel-preset-latest-minimal": "^1.1.2",
     "babel-preset-react": "^6.23.0",
     "json-loader": "^0.5.4",
-    "list": "^0.9.5",
+    "serve": "^4.0.1",
     "webpack": "^2.2.1"
   }
 }

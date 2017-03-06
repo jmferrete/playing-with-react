@@ -11,7 +11,7 @@ class Home extends Component {
         super(props);
 
         this.state = {
-            posts: {},
+            posts: [],
             page: 1,
             loading: true,
         }
@@ -33,10 +33,10 @@ class Home extends Component {
                 <h1>Home</h1>
 
                 <section>
-                    {this.stage.loading && (
+                    {this.state.loading && (
                         <h2>Loading posts...</h2>
                     )}
-                    {this.stage.posts
+                    {this.state.posts
                         .map(post => <Post key={post.id} {...post} />)
                     }
                 </section>

@@ -37,13 +37,13 @@ class Profile extends Component {
             <section name="profile">
                 <h2>Profile of {this.state.user.name}</h2>
                 <fieldset>
-                    <Legend>Basic info</Legend>
+                    <legend>Basic info</legend>
                     <input type='email' value={this.state.user.email} disabled />
                 </fieldset>
 
                 {this.state.user.address && (
                     <fieldset>
-                        <Legend>Address</Legend>
+                        <legend>Address</legend>
                         <address>
                             {this.state.user.address.street}<br />
                             {this.state.user.address.suite}<br />
