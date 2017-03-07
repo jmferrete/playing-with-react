@@ -18,9 +18,7 @@ class Home extends Component {
     }
 
     async componentDidMount() {
-        const posts = await api.post.getList(this.state.page);
-
-        console.log(this);
+        const posts = await api.posts.getList(this.state.page);
 
         this.setState({
             posts,
