@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "bff": "node ./build/server/index.js",
-    "sfs": "node_modules/serve/bin/serve.js ./build/statics --port 8081 --cache 0"
+    "sfs": "serve ./build/statics --port 8081 --cache 0",
+    "start": "webpack -w"
   },
   "keywords": [],
   "author": "José Manuel Ferrete Benítez",
