@@ -17,12 +17,14 @@ class Profile extends Component {
     }
 
     async componentDidMount() {
+        console.log(this.props);
+
         const [
             user,
             posts,
         ] = await Promise.all([
-            api.users.getSingle(this.props.params.id),
-            api.users.getPosts(this.props.params.id),
+            api.users.getSingle(this.props.match.params.id),
+            api.users.getPosts(this.props.match.params.id),
         ])
 
         this.setState({
