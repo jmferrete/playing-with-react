@@ -6,7 +6,8 @@
   "scripts": {
     "bff": "node ./build/server/index.js",
     "sfs": "serve ./build/statics --port 8081 --cache 0",
-    "start": "webpack -w"
+    "webpack" : "webpack -w",
+    "dev": "concurrently --kill-others \"npm run bff\" \"npm run sfs\" \"npm run webpack\""
   },
   "keywords": [],
   "author": "José Manuel Ferrete Benítez",
@@ -28,6 +29,7 @@
     "babel-preset-es2017": "^6.22.0",
     "babel-preset-latest-minimal": "^1.1.2",
     "babel-preset-react": "^6.23.0",
+    "concurrently": "^3.4.0",
     "json-loader": "^0.5.4",
     "serve": "^4.0.1",
     "webpack": "^2.2.1"
