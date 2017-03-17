@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Post from '../../posts/containers/Post.jsx';
 import Loading from '../../shared/components/Loading.jsx'
+import styles from './Page.css';
 
 import api from '../../api.js';
 
@@ -39,7 +40,7 @@ class Profile extends Component {
         }
 
         return (
-            <section name="profile">
+            <section name="profile" className={styles.section}>
                 <h2>Profile of {this.state.user.name}</h2>
                 <fieldset>
                     <legend>Basic info</legend>

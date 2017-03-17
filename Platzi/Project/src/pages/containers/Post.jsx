@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PostBody from '../../posts/containers/Post.jsx';
 import Loading from '../../shared/components/Loading.jsx';
 import Comment from '../../comments/components/Comment.jsx';
+import styles from './Page.css';
 
 import api from '../../api.js';
 
@@ -44,7 +45,7 @@ class Post extends Component {
         }
 
         return (
-            <section name="post">
+            <section name="post" className={styles.section}>
                 <PostBody
                     {...this.state.post}
                     user={this.state.user}
