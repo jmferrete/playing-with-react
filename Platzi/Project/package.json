@@ -7,22 +7,26 @@
     "bff": "node ./build/server/index.js",
     "sfs": "serve ./build/statics --port 8081 --cache 0",
     "webpack": "webpack -w",
+    "lint": "eslint -c ./.eslintrc --ext js,jsx src webpack*",
     "dev": "concurrently --kill-others \"npm run bff\" \"npm run sfs\" \"npm run webpack\""
   },
   "keywords": [],
   "author": "José Manuel Ferrete Benítez",
   "license": "ISC",
   "dependencies": {
+    "extract-text-webpack-plugin": "^2.1.0",
     "isomorphic-fetch": "^2.2.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-intl": "^2.2.3",
     "react-redux": "^5.0.3",
     "react-router-dom": "^4.0.0-beta.7",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "webpack-combine-loaders": "^2.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "^6.3.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.23.0",
     "babel-preset-es2016": "^6.22.0",
@@ -31,11 +35,15 @@
     "babel-preset-react": "^6.23.0",
     "concurrently": "^3.4.0",
     "css-loader": "^0.27.3",
-    "extract-text-webpack-plugin": "^2.1.0",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-loader": "^1.6.3",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
     "json-loader": "^0.5.4",
     "serve": "^4.0.1",
     "style-loader": "^0.14.1",
-    "webpack": "^2.2.1",
-    "webpack-combine-loaders": "^2.0.3"
+    "webpack": "^2.2.1"
   }
 }
