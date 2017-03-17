@@ -47,6 +47,7 @@ class Post extends Component {
                         <Link to={`/user/${this.state.user.id}`}>
                             {this.state.user.name}
                         </Link>
+                        &nbsp;
                         <span>
                             Hay {this.state.comments.length} comentarios.
                         </span>
