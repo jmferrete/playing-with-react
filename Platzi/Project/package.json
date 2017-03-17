@@ -6,7 +6,7 @@
   "scripts": {
     "bff": "node ./build/server/index.js",
     "sfs": "serve ./build/statics --port 8081 --cache 0",
-    "webpack" : "webpack -w",
+    "webpack": "webpack -w",
     "dev": "concurrently --kill-others \"npm run bff\" \"npm run sfs\" \"npm run webpack\""
   },
   "keywords": [],
@@ -30,8 +30,12 @@
     "babel-preset-latest-minimal": "^1.1.2",
     "babel-preset-react": "^6.23.0",
     "concurrently": "^3.4.0",
+    "css-loader": "^0.27.3",
+    "extract-text-webpack-plugin": "^2.1.0",
     "json-loader": "^0.5.4",
     "serve": "^4.0.1",
-    "webpack": "^2.2.1"
+    "style-loader": "^0.14.1",
+    "webpack": "^2.2.1",
+    "webpack-combine-loaders": "^2.0.3"
   }
 }
