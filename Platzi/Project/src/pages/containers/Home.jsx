@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Post from '../../posts/containers/Post.jsx';
 import Loading from '../../shared/components/Loading.jsx';
-import Header from '../../shared/components/Header.jsx';
+import styles from './Page.css';
 
 import api from '../../api.js';
 
@@ -67,10 +67,8 @@ class Home extends Component {
 
     render() {
         return (
-            <section name="Home">
-                <Header />
-
-                <section>
+            <section name="Home" className={styles.section}>
+                <section className={styles.list}>
                     {this.state.loading && (
                         <Loading />
                     )}

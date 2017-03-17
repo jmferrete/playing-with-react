@@ -6,15 +6,15 @@ import styles from './Header.css';
 function Header() {
     return (
         <header className={styles.header}>
-            <h1>
+            <h1 className={styles.title}>
                 Mi primera app con React
             </h1>
 
-            <nav role="navigation">
-                <Link to="/">
+            <nav role="navigation" className={styles.navigation}>
+                <Link to="/" className={styles.link}>
                     Home
                 </Link>
-                <a href="https://github.com/jmferrete" target="_blank">@jmferrete</a>
+                <a href="https://github.com/jmferrete" target="_blank" className={styles.link}>@jmferrete</a>
             </nav>
         </header>
     )
