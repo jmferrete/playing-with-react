@@ -23,8 +23,7 @@ class Post extends Component {
             comments,
         ] = await Promise.all([
             !this.state.user ? api.users.getSingle(this.props.userId) : Promise.resolve(null),
-            !this.state.user ? api.users.getComments(this.props.id) : Promise.resolve(null),
-            api.posts.getComments(this.props.id),
+            !this.state.user ? api.posts.getComments(this.props.id) : Promise.resolve(null),
         ]);
 
         this.setState({
