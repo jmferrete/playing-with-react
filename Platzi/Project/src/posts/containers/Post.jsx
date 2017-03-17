@@ -46,20 +46,18 @@ class Post extends Component {
           {this.props.body}
         </p>
         {!this.state.loading && (
-          <div className={styles.meta}>
-            <Link to={`/user/${this.state.user.id}`} className={styles.user}>
-              {this.state.user.name}
-            </Link>
-            &nbsp;
-            <span className={styles.comments}>
-              Hay {this.state.comments.length} comentarios.
-            </span>
-
-          </div>
-        )}
+        <div className={styles.meta}>
+          <Link to={`/user/${this.state.user.id}`} className={styles.user}>
+            {this.state.user.name}
+          </Link>
+          &nbsp;
+          <span className={styles.comments}>
+            Hay {this.state.comments.length} comentarios.
+          </span>
+        </div>
+      )}
       </article>
-    )
-
+    );
   }
 
 }
