@@ -66,14 +66,22 @@ class Post extends Component {
 
 }
 
-
 Post.propTypes = {
   id: PropTypes.number.isRequired,
   userId: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  user: PropTypes.isRequired,
-  comments: PropTypes.isRequired,
+  user: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }),
+  comments: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  })),
+};
+
+Post.defaultProps = {
+  user: null,
+  comments: [],
 };
 
 export default Post;
