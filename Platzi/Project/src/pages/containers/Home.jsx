@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 import Post from '../../posts/containers/Post';
 import Loading from '../../shared/components/Loading';
@@ -74,6 +75,9 @@ class Home extends Component {
   render() {
     return (
       <section name="Home" className={styles.section}>
+        <h2>
+          <FormattedMessage id="title.home" />
+        </h2>
         <section className={styles.list}>
           {this.state.loading && (
             <Loading />

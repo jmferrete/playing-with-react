@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 
 function Error404() {
   return (
     <section name="Error404">
-      <h1>Error404</h1>
+      <h1>Error 404</h1>
       <Link to="/">
-        Go to home
+        <FormattedMessage id="error.404" />
       </Link>
     </section>
   );
