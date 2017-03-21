@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 function Layout(props) {
   return (
@@ -23,6 +23,9 @@ function Layout(props) {
   );
 }
 
-
+Layout.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+};
 
 export default Layout;

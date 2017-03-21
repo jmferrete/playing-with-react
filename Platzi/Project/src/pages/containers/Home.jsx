@@ -21,20 +21,24 @@ class Home extends Component {
     this.handleScroll = this.handleScroll.bind(this);
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.initialFetch();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  async initialFetch() {
     const posts = await api.posts.getList(this.state.page);
 
     this.setState({
       posts,
       page: this.state.page + 1,
       loading: false,
-    })
+    });
 
     window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
   }
 
   handleScroll() {

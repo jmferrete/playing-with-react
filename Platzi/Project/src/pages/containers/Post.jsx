@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import PostBody from '../../posts/containers/Post';
 import Loading from '../../shared/components/Loading';
@@ -15,11 +15,15 @@ class Post extends Component {
       loading: true,
       user: {},
       post: {},
-      comments: []
+      comments: [],
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.initialFetch();
+  }
+
+  async initialFetch() {
     const [
       post,
       comments,
@@ -61,6 +65,14 @@ class Post extends Component {
     );
   }
 }
+
+Post.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }),
+  }).isRequired,
+};
 
 
 export default Post;
