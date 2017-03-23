@@ -8,6 +8,10 @@ import Pages from './pages/containers/Page';
 import Layout from './pages/components/Layout';
 import messages from './messages.json';
 
+const domain = process.env.NODE_ENV === 'production'
+  ? 'https://jmferrete-react-project-statics.now.sh/'
+  : 'http://localhost:8081/';
+
 function requestHandler(request, response) {
   const locale = request.headers['accept-language'].indexOf('es') >= 0 ? 'es' : 'en';
   const context = {};
@@ -30,7 +34,7 @@ function requestHandler(request, response) {
   }
 
   response.write(
-      renderToStaticMarkup(<Layout title="Application" content={html} />),
+      renderToStaticMarkup(<Layout title="Application" content={html} domain={domain} />),
   );
   response.end();
 }

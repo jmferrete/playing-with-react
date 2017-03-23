@@ -8,7 +8,7 @@ function Layout(props) {
         <title>{ props.title }</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
         <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
-        <link type="text/css" rel="stylesheet" href="http://localhost:8081/styles.css" />
+        <link type="text/css" rel="stylesheet" href={`${props.domain}/styles.css`} />
       </head>
       <body>
         <div
@@ -17,7 +17,7 @@ function Layout(props) {
             __html: props.content,
           }}
         />
-        <script src="http://localhost:8081/app.js" />
+        <script src={`${props.domain}/app.js`} />
       </body>
     </html>
   );
@@ -26,6 +26,7 @@ function Layout(props) {
 Layout.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
+  domain: PropTypes.strng.isRequired,
 };
 
 export default Layout;
