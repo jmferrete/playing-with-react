@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
+import { connect } from 'react-redux';
 
 import Post from '../../posts/containers/Post';
 import Loading from '../../shared/components/Loading';
@@ -8,14 +9,15 @@ import styles from './Page.css';
 
 import api from '../../api';
 
+import actions from '../../actions';
 
 class Home extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      posts: [],
-      page: 1,
+      posts: props.posts || [],
+      page: props.page || 1,
       loading: true,
     };
 
@@ -31,11 +33,13 @@ class Home extends Component {
   }
 
   async initialFetch() {
-    const posts = await api.posts.getList(this.state.page);
+    const posts = await api.posts.getList(this.props.page);
+
+    this.props.dispatch(
+      actions.setPost(posts),
+    );
 
     this.setState({
-      posts,
-      page: this.state.page + 1,
       loading: false,
     });
 
@@ -56,13 +60,13 @@ class Home extends Component {
 
     this.setState({ loading: true }, async () => {
       try {
-        const posts = await api.posts.getList(this.state.page);
+        const posts = await api.posts.getList(this.props.page);
 
-        this.setState({
-          posts: this.state.posts.concat(posts),
-          page: this.state.page + 1,
-          loading: false,
-        });
+        this.props.dispatch(
+          actions.setPost(posts),
+        );
+
+        this.setState({ loading: false });
       } catch (error) {
         console.error(error);
         this.setState({ loading: false });
@@ -82,7 +86,7 @@ class Home extends Component {
           {this.state.loading && (
             <Loading />
           )}
-          {this.state.posts
+          {this.props.posts
             .map(post => <Post key={post.id} {...post} />)
           }
         </section>
@@ -95,5 +99,25 @@ class Home extends Component {
   }
 }
 
+Home.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  page: PropTypes.number.isRequired,
+};
 
-export default Home;
+function mapStateToProps(state) {
+  return {
+    posts: state.posts.entities,
+    page: state.posts.page,
+  };
+}
+
+/*
+function mapDispatchToProps(dispatch, props) {
+  return {
+    dispatch,
+  };
+}
+*/
+
+export default connect(mapStateToProps)(Home);

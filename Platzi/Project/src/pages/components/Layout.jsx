@@ -26,7 +26,7 @@ function Layout(props) {
 Layout.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  domain: PropTypes.strng.isRequired,
+  domain: PropTypes.string.isRequired,
 };
 
 export default Layout;
