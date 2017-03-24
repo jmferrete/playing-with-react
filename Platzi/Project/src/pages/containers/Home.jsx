@@ -16,8 +16,8 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      posts: props.posts || [],
-      page: props.page || 1,
+      posts: props.posts,
+      page: props.page,
       loading: true,
     };
 
@@ -101,8 +101,13 @@ class Home extends Component {
 
 Home.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  page: PropTypes.number.isRequired,
+  posts: PropTypes.arrayOf(PropTypes.object),
+  page: PropTypes.number,
+};
+
+Home.getDefaultProps = {
+  posts: [],
+  page: 1,
 };
 
 function mapStateToProps(state) {
